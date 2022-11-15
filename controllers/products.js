@@ -7,6 +7,7 @@ export const queryProducts = async (req, res) => {
     const filtered = await Product.find({
       name: { $regex: name, $options: "i" },
     });
+    //console.log('ageraa',filtered)
     res.status(200).json({ products: filtered });
   } catch (err) {
     res.status(500).json({ message: "something went wrong", err });

@@ -65,7 +65,7 @@ export const login = async (req, res) => {
     if (isPasswordValid) {
       const { token, refreshToken } = generateToken(
         { _id, firstName, lastName, role },
-        "1m",
+        "15m",
         "7d"
       );
       return res.status(200).json({
@@ -114,7 +114,7 @@ export const refreshToken = async (req, res) => {
       const { _id, role, firstName, lastName } = user;
       const { token } = generateToken(
         { _id, firstName, lastName, role },
-        "1m",
+        "15m",
         "7d"
       );
       res.json({ message: "token refreshed successfully", token });
